@@ -1,0 +1,25 @@
+<h1>Join the Flying Dutchman's crew?</h1>
+
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> stopped this user from being saved:</h2>
+
+        <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_with model: @user do |form| %>
+    <div>
+        <%= label_tag(:username, "Choose your name:") %>
+        <%= form.text_field :username, placeholder: "Patrick Star" %><br>
+        <%= label_tag(:email, "Email Address:") %>
+        <%= form.email_field :email, placeholder: "Pinkstar@undertherock.com" %><br>
+        <%= label_tag(:password, "Choose your secret password:") %>
+        <%= form.password_field :pasword,placeholder: "Sp0n93BobsFr13nD" %><br>
+        <%= form.submit "Submit" %>
+    </div>
+<% end %>

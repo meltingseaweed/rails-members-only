@@ -1,0 +1,12 @@
+<h1>Ghostly stories from the crew</h1>
+
+<div id="posts">
+    <% @posts.each do |post| %>
+        <li><%= link_to post[:title], post %></li>
+    <% end %>
+</div>
+
+<div>
+    <%= link_to "Arrrr, would you like to share a tale?", new_post_path %><br>
+    <%= link_to "Aye, there is space in our crew ~", new_user_path%>
+</div>

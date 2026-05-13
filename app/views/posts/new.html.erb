@@ -1,0 +1,23 @@
+<h1>Tell us about your tale scalliwag</h1>
+
+<% if @post.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(@post.errors.count, "error") %> stopped ye from sharing this tale ~</h2>
+
+        <ul>
+        <% @post.errors.full_messages.each do |post| %>
+            <li><%= post %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_with model: @post do |form| %>
+    <div>
+        <%= label_tag(:title, "The title of ye tale ~") %>
+        <%= form.text_field :title, placeholder: "Stormy nights" %><br>
+        <%= label_tag(:body, "Aye, Tell us ye tale ~") %><br>
+        <%= form.textarea :body, cols: 20, rows: 40, placeholder: "One dark evening.. " %><br>
+        <%= form.submit "Submit" %>
+    </div>
+<% end %>
