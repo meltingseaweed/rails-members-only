@@ -4,8 +4,8 @@
     <p>Welcome, <%= current_user.username %> ~</p>
     <%= link_to "Arrrr, finished for the day", destroy_user_session_path, data: { turbo_method: :delete } %>
 <% else %>
-    <%= link_to "Sign In", new_user_session_path %>
-    <%= link_to "Aye, there is space in our crew ~", new_user_registration_path%>
+    <p><%= link_to "Sign In", new_user_session_path %></p>
+    <p><%= link_to "Aye, there is space in our crew ~", new_user_registration_path%></p>
 <% end %>
 
 <div id="posts">
@@ -25,5 +25,5 @@
 </div>
 
 <div>
-    <%= link_to "Arrrr, would you like to share a tale?", new_post_path %><br>
+    <%= link_to "Arrrr, would you like to share a ghostly tale?", new_post_path %><br>
 </div>

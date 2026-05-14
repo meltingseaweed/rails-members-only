@@ -21,11 +21,25 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <style>
+      body {
+        background-color: #595959;
+        color: #C5C6C7
+      }
+
+
+
+      a {
+        color: #A1AEB1;
+        font-weight: bold;
+      }
+      </style>
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
     <%= yield %>
+    </div>
   </body>
 </html>
