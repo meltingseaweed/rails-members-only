@@ -7,8 +7,8 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def show
-  end
+  # def show
+  # end
 
   def create
     @post = Post.new(post_params)
@@ -19,21 +19,21 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-    if @post.update(post_params)
-      redirect_to @product
-    else
-      render :edit, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   if @post.update(post_params)
+  #     redirect_to @product
+  #   else
+  #     render :edit, status: :unprocessable_entity
+  #   end
+  # end
 
-  def destroy
-    @post.destroy
-    redirect_to posts_path
-  end
+  # def destroy
+  #   @post.destroy
+  #   redirect_to posts_path
+  # end
 
   private
     def post_params
