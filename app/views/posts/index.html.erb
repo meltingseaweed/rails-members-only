@@ -1,15 +1,28 @@
 <h1>Ghostly stories from the crew</h1>
+<% if user_signed_in? %>
+    <p>Welcome, <%= current_user.username %> ~</p>
+    <%= link_to "Arrrr, finished for the day", destroy_user_session_path, data: { turbo_method: :delete } %>
+<% else %>
+    <%= link_to "Sign In", new_user_session_path %>
+    <%= link_to "Aye, there is space in our crew ~", new_user_registration_path%>
+<% end %>
 
-<%# <div id="posts"> %>
-    <%# <% @posts.each do |post| %> 
-    <%# %> 
-        <%# <li><%= link_to post[:title], post %>
-            <%#  %>
-        <%# </li> %> 
-    <%# <% end %> 
-<%# </div> %>
+<div id="posts">
+    <% @posts.each do |post| %>
+        <ul>
+            <li><%= post[:title] %><br>
+                <%= post[:body] %>
+                <% if user_signed_in? %>
+                    <p>Tale from <%= current_user.username %></p>
+                <% else %>
+                    <p>Tale from a ghostly crew member</p>
+                <% end %>
+            </li> 
+
+        </ul>
+    <% end %>
+</div>
 
 <div>
     <%= link_to "Arrrr, would you like to share a tale?", new_post_path %><br>
-    <%= link_to "Aye, there is space in our crew ~", new_user_registration_path%>
 </div>
