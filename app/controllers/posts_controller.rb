@@ -11,9 +11,9 @@ class PostsController < ApplicationController
   # end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
-      redirect_to @post
+    @post = current_user.posts.build(post_params)
+    if @post.save!
+      redirect_to root_path, notice: "Post was successfully created ~"
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,6 +37,6 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.expect(post: [ :title, :body, :closing ])
+      params.expect(post: [ :title, :body ])
     end
 end

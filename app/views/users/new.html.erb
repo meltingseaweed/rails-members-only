@@ -23,3 +23,17 @@
         <%= form.submit "Submit" %>
     </div>
 <% end %>
+
+<div>
+    <h2>Already a member?</h2>
+    <h2>Sign in here:</h2>
+    <%= form_with model: @user do |form| %>
+        <div>
+            <%= label_tag(:email, "Email Address:") %>
+            <%= form.email_field :email, placeholder: "Pinkstar@undertherock.com" %><br>
+            <%= label_tag(:password, "Password:") %>
+            <%= form.password_field :pasword,placeholder: "Sp0n93BobsFr13nD" %><br>
+            <%= form.submit "Submit" %>
+        </div>
+    <% end %>
+</div>
